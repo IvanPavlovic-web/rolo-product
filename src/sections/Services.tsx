@@ -29,10 +29,6 @@ export default function Services() {
       ref={ref as React.RefObject<HTMLElement>}
       aria-labelledby="services-title"
     >
-      <h2 id="services-title" className="services__heading">
-        Kako radimo?
-      </h2>
-
       <Carousel
         options={{ loop: false }}
         className="services__carousel"
@@ -57,8 +53,11 @@ export default function Services() {
                 className={`services__glass ${inView ? "animate-in" : ""}`}
                 style={{ animationDelay: `${0.2 + i * 0.05}s` }}
               >
-                <span className="services__glass-tag">Kako radimo</span>
-                <h3 className="services__glass-title">
+                <span className="services__glass-tag">Šta radimo</span>
+                <h3
+                  id={i === 0 ? "services-title" : undefined}
+                  className="services__glass-title"
+                >
                   {s.icon} {s.title}
                 </h3>
                 <p className="services__glass-desc">{s.description}</p>
