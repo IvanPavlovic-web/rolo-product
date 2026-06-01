@@ -1,0 +1,260 @@
+/* Services.css */
+.services {
+  position: relative;
+  width: 100%;
+}
+
+.services__carousel {
+  position: relative;
+  width: 100%;
+}
+
+.services__slider-container {
+  height: min(680px, 100svh);
+  min-height: 560px;
+}
+
+.services__slide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.services__slide-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Gradient overlay */
+.services__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.1) 40%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  z-index: 1;
+}
+
+/* Liquid glass kartica — donji lijevi ugao */
+.services__glass {
+  position: absolute;
+  bottom: 3rem;
+  left: 6rem;
+  z-index: 10;
+
+  /* 🔥 PRO proporcije (golden ratio look) */
+  width: clamp(320px, 30vw, 460px);
+  aspect-ratio: 1.618 / 1;
+
+  max-width: 90vw;
+
+  /* glass efekt */
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 18px;
+
+  /* bolji spacing za “premium card” */
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  /* shadow depth */
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.services__glass.animate-in {
+  animation: fadeUpCard 0.6s ease forwards;
+  animation-delay: 0.25s;
+}
+
+.services__glass-tag {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.4rem;
+}
+
+.services__glass-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.6rem;
+}
+
+.services__glass-desc {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.65;
+  margin: 0 0 1rem;
+}
+
+.services__glass-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.services__glass-features li {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.services__check {
+  color: #a8d9b8;
+  font-weight: 700;
+}
+
+/* Nav dugmad */
+.services__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.services__nav:hover {
+  background: rgba(255, 255, 255, 0.26);
+}
+
+.services__nav:disabled {
+  opacity: 0.2;
+  cursor: default;
+}
+
+.services__nav--prev {
+  left: 1.5rem;
+}
+.services__nav--next {
+  right: 1.5rem;
+}
+
+/* Dot indikatori */
+.services__dots {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  gap: 6px;
+}
+
+@keyframes fadeUpCard {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobilno */
+@media (max-width: 640px) {
+  .services__slider-container {
+    height: 100svh;
+    min-height: 620px;
+  }
+
+  .services__glass {
+    bottom: 4.5rem;
+    left: 1rem;
+    right: 1rem;
+    width: auto;
+    aspect-ratio: auto;
+    max-width: unset;
+    padding: 1.25rem;
+    gap: 0.55rem;
+    border-radius: 16px;
+  }
+
+  .services__glass-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .services__glass-desc {
+    font-size: 0.82rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+  }
+
+  .services__glass-features {
+    gap: 4px;
+  }
+
+  .services__glass-features li {
+    font-size: 0.76rem;
+  }
+
+  .services__nav {
+    top: auto;
+    bottom: 1rem;
+    width: 44px;
+    height: 44px;
+    transform: none;
+  }
+
+  .services__nav--prev {
+    left: 1rem;
+  }
+
+  .services__nav--next {
+    right: 1rem;
+  }
+
+  .services__dots {
+    bottom: 1.9rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .services__slider-container {
+    height: 72svh;
+    min-height: 620px;
+  }
+
+  .services__glass {
+    left: 4rem;
+    bottom: 3rem;
+    width: clamp(360px, 52vw, 480px);
+  }
+}

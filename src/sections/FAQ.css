@@ -1,0 +1,144 @@
+/* === FAQ sekcija === */
+.faq {
+  position: relative;
+  font-family: "Inter", sans-serif;
+  padding: 6rem 1.5rem;
+  overflow: hidden;
+  color: #0a0a0a;
+}
+
+/* Grainient pozadina */
+.faq__background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Sadržaj iznad */
+.faq__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.faq__header {
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  opacity: 1;
+  transform: none;
+}
+
+.faq__tag {
+  color: #fff !important;
+}
+
+.faq__title {
+  margin: 0;
+  color: var(--text-dark);
+}
+
+/* ===== NOVI ACCORDION STILOVI ===== */
+.faq__accordion {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.faq__accordion-item {
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.faq__accordion-item:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.faq__accordion-item--divider {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Trigger dugme */
+.faq__accordion-trigger {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: left;
+  font-family: inherit;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #0a0a0a;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+/* Ikona Plus */
+.faq__accordion-icon {
+  flex-shrink: 0;
+  color: #2467e8;
+  transition: transform 0.3s ease;
+}
+
+.faq__accordion-icon--open {
+  transform: rotate(45deg);
+}
+
+/* Panel sa odgovorom */
+.faq__accordion-panel {
+  overflow: hidden;
+}
+
+.faq__accordion-answer {
+  margin: 0;
+  padding: 0 1.5rem 1.25rem 3.25rem; /* poravnato sa tekstom pitanja */
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .faq {
+    padding: 4rem 1rem;
+  }
+
+  .faq__header {
+    margin-bottom: 2.25rem;
+  }
+
+  .faq__accordion-trigger {
+    padding: 1rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .faq__accordion-answer {
+    padding: 0 1.25rem 1rem 3rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .faq {
+    padding: 3.5rem 0.75rem;
+  }
+
+  .faq__accordion-trigger {
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .faq__accordion-answer {
+    padding: 0 1rem 1rem 2.75rem;
+  }
+}

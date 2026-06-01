@@ -1,0 +1,401 @@
+/* ===== CONTACT — Editorial Magazine Style ===== */
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap");
+
+.contact {
+  position: relative;
+  background: #f5f3ef;
+  font-family: "DM Sans", sans-serif;
+  overflow: hidden;
+}
+
+/* ── Hero state ─────────────────────────────── */
+
+.contact__hero {
+  position: relative;
+  height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.contact__topbar {
+  flex-shrink: 0;
+  padding: 0.9rem 2.5rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: #888;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.contact__layout {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+/* Left column */
+.contact__left {
+  padding: 2.5rem 3rem 2.5rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  justify-content: space-between;
+  overflow: hidden;
+  min-height: 0;
+}
+
+.contact__headline {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(4rem, 7vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  color: #111;
+  margin: 0;
+}
+
+.contact__info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.contact__kicker,
+.contact__info-label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #aaa;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.contact__email,
+.contact__phone {
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  font-weight: 300;
+  color: #111;
+  text-decoration: none;
+  line-height: 1.5;
+  transition: color 0.2s;
+}
+
+.contact__email:hover,
+.contact__phone:hover {
+  color: #2467e8;
+}
+
+.contact__address {
+  font-style: normal;
+  font-size: 0.98rem;
+  font-weight: 300;
+  color: #444;
+  line-height: 1.7;
+}
+
+.contact__cta-btn {
+  align-self: flex-start;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  background: none;
+  border: 1.5px solid #111;
+  color: #111;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+  flex-shrink: 0;
+}
+
+.contact__cta-btn:hover {
+  background: #111;
+  color: #f5f3ef;
+}
+
+/* Right column — images */
+.contact__right {
+  position: relative;
+  overflow: hidden;
+  background: #111;
+  height: 100%;
+}
+
+/* Main image fills the right half */
+.contact__img-main {
+  position: absolute;
+  inset: 0;
+}
+
+.contact__img-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.05) saturate(0.9);
+}
+
+/* Blue gradient over main image */
+.contact__img-gradient {
+  display: none;
+}
+
+/* Image labels */
+.contact__img-label {
+  position: absolute;
+  bottom: 1rem;
+  font-size: 0.63rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  z-index: 2;
+}
+
+.contact__img-label--left {
+  left: 1rem;
+}
+.contact__img-label--right {
+  right: 1rem;
+}
+
+/* Small image — bottom-right corner, 3x smaller */
+.contact__img-small {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 33.333%;
+  aspect-ratio: 3/4;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+  z-index: 5;
+  box-shadow: -6px -6px 28px rgba(0, 0, 0, 0.35);
+}
+
+.contact__img-small img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.1) saturate(0.85);
+}
+
+/* Arrow */
+.contact__arrow-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+
+.contact__arrow {
+  display: block;
+  animation: bounceArrow 2s ease-in-out infinite;
+}
+
+.contact__arrow svg {
+  width: 40px;
+  height: 60px;
+  display: block;
+}
+@keyframes bounceArrow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+}
+
+/* ── Details state ────────────────────────── */
+
+.contact__details {
+  min-height: 100vh;
+  padding: 3rem 2.5rem;
+}
+
+.contact__back {
+  font-family: "Inter", sans-serif;
+  background: none;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: #888;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 2.5rem;
+  transition: color 0.2s;
+}
+
+.contact__back:hover {
+  color: #111;
+}
+
+.contact__details-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 3rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.contact__details-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.contact__details-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: #111;
+  margin: 0;
+}
+
+.contact__info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.contact__info-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.contact__info-value {
+  font-size: 1.15rem;
+  font-weight: 300;
+  color: #111;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact__info-value:hover {
+  color: #2467e8;
+}
+
+.contact__details-map {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.contact__details-map iframe {
+  width: 100%;
+  height: 480px;
+  border: none;
+  display: block;
+}
+
+/* ── Responsive ──────────────────────────── */
+
+@media (max-width: 900px) {
+  .contact__hero {
+    height: auto;
+    max-height: none;
+  }
+
+  .contact__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__right {
+    height: 60vw;
+    min-height: 280px;
+    position: relative;
+  }
+
+  .contact__left {
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .contact__headline {
+    font-size: clamp(4rem, 14vw, 7rem);
+  }
+
+  .contact__img-small {
+    width: calc(100% / 3);
+  }
+
+  .contact__details-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .contact__details-map iframe {
+    height: 300px;
+  }
+}
+
+@media (max-width: 540px) {
+  .contact__details {
+    padding: 2rem 1rem;
+  }
+
+  .contact__headline {
+    font-size: clamp(3.5rem, 16vw, 5.5rem);
+  }
+
+  .contact__topbar {
+    padding: 0.8rem 1.2rem;
+  }
+
+  .contact__left {
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  .contact__email,
+  .contact__phone,
+  .contact__info-value {
+    overflow-wrap: anywhere;
+  }
+
+  .contact__right {
+    height: 75vw;
+    min-height: 240px;
+  }
+
+  .contact__img-label {
+    max-width: 46%;
+    line-height: 1.35;
+  }
+
+  .contact__img-small {
+    width: 42%;
+  }
+
+  .contact__cta-btn {
+    width: 100%;
+    padding: 0.85rem 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .contact__headline {
+    font-size: clamp(3.1rem, 15vw, 4.5rem);
+  }
+
+  .contact__arrow {
+    display: none;
+  }
+}

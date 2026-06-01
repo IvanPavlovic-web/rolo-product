@@ -1,0 +1,47 @@
+.marquee {
+  --gap: 1rem;
+  --duration: 25s;
+
+  width: 100%;
+  overflow: hidden;
+}
+
+.marquee__track {
+  display: flex;
+  gap: var(--gap);
+  width: max-content;
+  animation: scroll var(--duration) linear infinite;
+}
+
+.marquee__track--reverse {
+  animation-direction: reverse;
+}
+
+.marquee__track--pause:hover {
+  animation-play-state: paused;
+}
+
+.marquee__content {
+  display: flex;
+  gap: var(--gap);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50% - var(--gap) / 2));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__track {
+    width: 100%;
+    animation: none;
+  }
+
+  .marquee__content[aria-hidden="true"] {
+    display: none;
+  }
+}
