@@ -8,21 +8,21 @@ gsap.registerPlugin(ScrollTrigger);
 const CARDS = [
   {
     id: "card-1",
-    image: "/servisi/servis-1.webp",
+    image: "servisi/servis-1.webp",
     number: "01",
     label: "PVC i ALU stolarija iz vlastitog pogona",
     color: "#2f7cff",
   },
   {
     id: "card-2",
-    image: "/servisi/servis-2.webp",
+    image: "servisi/servis-2.webp",
     number: "02",
     label: "Ista ekipa mjeri i ugrađuje",
     color: "#333333",
   },
   {
     id: "card-3",
-    image: "/servisi/servis-3.webp",
+    image: "servisi/servis-3.webp",
     number: "03",
     label: "Bez posrednika i bez komplikacija",
     color: "#133b86",

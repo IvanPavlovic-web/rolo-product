@@ -13,10 +13,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import "./Services.css";
 
 const IMAGES = [
-  "/karusel/slika-1.webp",
-  "/karusel/slika-2.webp",
-  "/karusel/slika-3.webp",
-  "/karusel/slika-4.webp",
+  "karusel/slika-1.webp",
+  "karusel/slika-2.webp",
+  "karusel/slika-3.webp",
+  "karusel/slika-4.webp",
 ];
 
 export default function Services() {

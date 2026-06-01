@@ -180,7 +180,7 @@ export default function Contact() {
               <div className="contact__right">
                 {/* Main big image */}
                 <div className="contact__img-main">
-                  <img src="/kontakt/kontakt-2.webp" alt="Kontakt" />
+                  <img src="kontakt/kontakt-2.webp" alt="Kontakt" />
                   <div className="contact__img-label contact__img-label--left">
                     ROLO PRODUCT, CRNA GORA
                   </div>
@@ -192,7 +192,7 @@ export default function Contact() {
 
                 {/* Small image bottom-right */}
                 <div className="contact__img-small">
-                  <img src="/kontakt/kontakt-1.webp" alt="Detalj" />
+                  <img src="kontakt/kontakt-1.webp" alt="Detalj" />
                 </div>
               </div>
             </div>

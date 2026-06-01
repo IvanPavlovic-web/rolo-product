@@ -8,25 +8,25 @@ const people = [
     id: 1,
     name: "Marko Majstorović",
     designation: "Tivat",
-    image: "/recenzije/marko-majstorovic.webp",
+    image: "recenzije/marko-majstorovic.webp",
   },
   {
     id: 2,
     name: "Mihajlo Jokić",
     designation: "Herceg Novi",
-    image: "/recenzije/mihajlo-jokic.webp",
+    image: "recenzije/mihajlo-jokic.webp",
   },
   {
     id: 3,
     name: "Ivan Pavlović",
     designation: "Igalo",
-    image: "/recenzije/ivan-pavlovic.webp",
+    image: "recenzije/ivan-pavlovic.webp",
   },
   {
     id: 4,
     name: "Danilo Jovanović",
     designation: "Budva",
-    image: "/recenzije/danilo-jovanovic.webp",
+    image: "recenzije/danilo-jovanovic.webp",
   },
 ];
 
@@ -84,7 +84,7 @@ export default function Hero() {
           preload="metadata"
           className="hero__video"
         >
-          <source src="/video/hero.mp4" type="video/mp4" />
+          <source src="video/hero.mp4" type="video/mp4" />
         </video>
 
         <div className="hero__overlay" />
