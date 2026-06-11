@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect, useCallback } from "react";
 import "./DoorPanels.css";
 
-const PANEL_COUNT = 24;
+const PANEL_COUNT = 16;
 
 const panelImages = Array.from({ length: PANEL_COUNT }, (_, i) => ({
   src: `paneli/panel-${i + 1}.webp`,
