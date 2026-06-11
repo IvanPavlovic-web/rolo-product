@@ -1,0 +1,312 @@
+/* === Door Panels Section === */
+.door-panels {
+  padding: 7rem 0;
+  background: var(--dark);
+  overflow: hidden;
+}
+
+.door-panels__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* === Header === */
+.dp-header {
+  text-align: center;
+  margin: 0 auto 4rem;
+  max-width: 700px;
+}
+
+.dp-header .section-title {
+  margin-bottom: 0.75rem;
+}
+
+.dp-header__desc {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* === Slider === */
+.dp-slider-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  max-width: 100%;
+}
+
+.dp-track-outer {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.dp-track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 0.5rem 0;
+  scrollbar-width: none;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.dp-track::-webkit-scrollbar {
+  display: none;
+}
+
+.dp-track:active {
+  cursor: grabbing;
+}
+
+/* === Fade-out on right edge === */
+.dp-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.dp-fade--right {
+  right: 0;
+  background: linear-gradient(to left, var(--dark) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dp-fade--right.visible {
+  opacity: 1;
+}
+
+/* === Card — no border radius, no hover effects === */
+.dp-card {
+  flex: 0 0 auto;
+  width: clamp(360px, 26vw, 500px);
+  scroll-snap-align: center;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.dp-card:hover {
+  border-color: rgba(47, 124, 255, 0.25);
+}
+
+.dp-card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+/* === Arrows === */
+.dp-arrow {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 4;
+}
+
+.dp-arrow:hover:not(:disabled) {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.dp-arrow:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* === Mobile scroll indicator === */
+.dp-mobile-indicator {
+  display: none;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+.dp-mobile-indicator__track {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  overflow: hidden;
+  max-width: 160px;
+  margin: 0 auto;
+}
+
+.dp-mobile-indicator__thumb {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  transition:
+    transform 0.1s linear,
+    width 0.2s ease;
+  opacity: 0.7;
+}
+
+/* === Lightbox === */
+.dp-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(14, 16, 22, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+  padding: 2rem;
+}
+
+.dp-lightbox--open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dp-lightbox__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 1001;
+}
+
+.dp-lightbox__close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.dp-lightbox__img {
+  max-width: 90vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+  transform: scale(0.96);
+  transition: transform 0.3s ease;
+}
+
+.dp-lightbox--open .dp-lightbox__img {
+  transform: scale(1);
+}
+
+/* === Mobile === */
+@media (max-width: 768px) {
+  .door-panels {
+    padding: 5rem 0;
+  }
+
+  .door-panels__inner {
+    padding: 0 1rem;
+  }
+
+  .dp-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .dp-header__desc {
+    font-size: 1rem;
+  }
+
+  .dp-slider-wrap {
+    gap: 0;
+  }
+
+  .dp-arrow {
+    display: none;
+  }
+
+  .dp-track-outer {
+    margin: 0 -0.5rem;
+  }
+
+  .dp-track {
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: grab;
+  }
+
+  .dp-card {
+    width: 78vw;
+    max-width: 400px;
+    scroll-snap-align: start;
+  }
+
+  .dp-fade--right {
+    width: 80px;
+    opacity: 1;
+  }
+
+  .dp-mobile-indicator {
+    display: block;
+  }
+
+  .dp-lightbox__close {
+    top: 1rem;
+    right: 1rem;
+    width: 44px;
+    height: 44px;
+  }
+
+  .dp-lightbox {
+    padding: 1rem;
+  }
+}
+
+/* === Reduced motion === */
+@media (prefers-reduced-motion: reduce) {
+  .dp-card,
+  .dp-arrow,
+  .dp-fade--right,
+  .dp-lightbox,
+  .dp-lightbox__img {
+    transition: none;
+  }
+
+  .dp-track {
+    scroll-behavior: auto;
+  }
+}
