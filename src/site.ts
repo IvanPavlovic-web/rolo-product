@@ -20,10 +20,10 @@ export const SITE_INFO = {
   businessName: "Rolo Product d.o.o.",
   brandName: "Rolo Product",
   shortBrand: "ROLO PRODUCT",
-  phoneDisplay: "+382 68 119 825",
-  phoneHref: "tel:+38268119825",
-  email: "eosmontenegro@gmail.com",
-  emailHref: "mailto:eosmontenegro@gmail.com",
+  phoneDisplay: "+382 68 459 979",
+  phoneHref: "tel:+38268459979",
+  email: "danijelrolovic@gmail.com",
+  emailHref: "mailto:danijelrolovic@gmail.com",
   addressLine1: "Aleksandrova obala 6",
   addressLine2: "Zelenika, Herceg Novi, Crna Gora",
   fullAddress: "Aleksandrova obala 6, Zelenika, Herceg Novi, Crna Gora",
@@ -132,8 +132,7 @@ export const LEGAL_DOCUMENTS = [
     id: "terms",
     label: "Uslovi korišćenja",
     title: "Uslovi korišćenja",
-    intro:
-      `Korišćenjem sajta ${SITE_INFO.brandName} prihvatate ove uslove korišćenja. Uslovi uređuju informativno korišćenje sajta, komunikaciju sa nama i osnovna pravila vezana za ponude i sadržaj.`,
+    intro: `Korišćenjem sajta ${SITE_INFO.brandName} prihvatate ove uslove korišćenja. Uslovi uređuju informativno korišćenje sajta, komunikaciju sa nama i osnovna pravila vezana za ponude i sadržaj.`,
     sections: [
       {
         title: "Podaci o trgovcu",
