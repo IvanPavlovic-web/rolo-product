@@ -2,7 +2,7 @@
   "name": "pvc-zelenic",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://IvanPavlovic-web.github.io/rolo-product",
+  "homepage": "https://roloproduct.com",
   "type": "module",
   "scripts": {
     "dev": "vite",
