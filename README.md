@@ -1,4 +1,4 @@
-# ROLO PRODUCT — Website
+# ROLO PRODUCT Website (roloproduct.com)
 
 Single-page marketing website for ROLO PRODUCT d.o.o., a company that manufactures and installs custom PVC and ALU joinery in Montenegro. Built with React 19, TypeScript, and Vite; deployed to GitHub Pages under the custom domain `roloproduct.com`.
 
