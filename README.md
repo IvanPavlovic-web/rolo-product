@@ -1,40 +1,32 @@
 # ROLO PRODUCT — Website
 
-> **Real client project** — this website was built for **ROLO PRODUCT d.o.o.**, a company specialized in manufacturing and installing custom PVC and ALU joinery in Montenegro. The site is live in production at **[roloproduct.com](https://roloproduct.com/)**.
+Single-page marketing website for ROLO PRODUCT d.o.o., a company that manufactures and installs custom PVC and ALU joinery in Montenegro. Built with React 19, TypeScript, and Vite; deployed to GitHub Pages under the custom domain `roloproduct.com`.
 
-[![Live](https://img.shields.io/badge/live-roloproduct.com-2f7cff?style=flat-square)](https://roloproduct.com/)
-[![React](https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react)](https://react.dev)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
-[![Vite](https://img.shields.io/badge/Vite-8-646cff?style=flat-square&logo=vite)](https://vitejs.dev)
-[![License](https://img.shields.io/badge/license-Proprietary-red?style=flat-square)](LICENSE)
+Live: https://roloproduct.com/
 
 ---
 
-## 📊 Google Analytics — Real Production Data
+## Architecture / Flow Diagram
 
-The site is live in production and receives traffic from real users. Below are screenshots from Google Analytics showing actual traffic:
-
-![Google Analytics — traffic overview](img-1.png)
-
-![Google Analytics — visitor statistics](img-2.png)
+![Architecture and flow diagram](diagram.png)
 
 ---
 
-## Overview
+## Screenshots
 
-Single-page marketing website with the following sections:
-
-- **Hero** — video background, glassmorphism testimonial card
-- **Services** — Embla carousel with liquid glass cards
-- **About** — GSAP ScrollTrigger 3D flip animation
-- **Gallery** — masonry grid with lightbox preview and lazy loading
-- **Testimonials** — dual marquee with noise overlay effect
-- **FAQ** — accordion with WebGL grainient background
-- **Door Panels** — drag-scroll slider with lightbox preview
-- **Contact** — split view with Google Maps integration
-- **Footer** — legal documents in modals (privacy, cookies, terms)
-
-SEO is implemented through Schema.org `HomeAndConstructionBusiness` and `FAQPage` structured data, `sitemap.xml`, `robots.txt`, and complete meta tags (Open Graph, Twitter Card, geo targeting).
+| Screen | Description |
+|---|---|
+| `img-1.png` | Google Analytics — traffic overview (production) |
+| `img-2.png` | Google Analytics — visitor statistics (production) |
+| Hero | Video background with glassmorphism testimonial card |
+| Services | Embla carousel with liquid glass cards |
+| About | GSAP ScrollTrigger 3D flip animation |
+| Gallery | Masonry grid with lightbox preview |
+| Testimonials | Dual marquee with noise overlay |
+| FAQ | Accordion with WebGL grainient background |
+| Door Panels | Drag-scroll slider with lightbox preview |
+| Contact | Split view with Google Maps embed |
+| Footer | Legal modals (privacy, cookies, terms) |
 
 ---
 
@@ -42,17 +34,37 @@ SEO is implemented through Schema.org `HomeAndConstructionBusiness` and `FAQPage
 
 | Layer | Technology |
 |---|---|
-| **Framework** | React 19 |
-| **Language** | TypeScript 5 |
-| **Build** | Vite 8 |
-| **Animations** | GSAP + ScrollTrigger, Motion |
-| **Carousel** | Embla Carousel |
-| **WebGL** | OGL (custom shader for Grainient background) |
-| **Icons** | Lucide React |
-| **Utilities** | clsx, tailwind-merge |
-| **Image optimization** | Sharp (build-time) |
-| **Deploy** | GitHub Pages (gh-pages) |
-| **Fonts** | Google Fonts (Inter, Bebas Neue, DM Sans, Playfair Display) |
+| Framework | React 19 |
+| Language | TypeScript 5 |
+| Build Tool | Vite 8 |
+| Animation | GSAP + ScrollTrigger, Motion |
+| Carousel | Embla Carousel |
+| WebGL | OGL (custom shader for background effect) |
+| Icons | Lucide React |
+| Utilities | clsx, tailwind-merge |
+| Image Optimization | Sharp (build-time script) |
+| Fonts | Google Fonts (Inter, Bebas Neue, DM Sans, Playfair Display) |
+| Deployment | GitHub Pages (gh-pages) |
+| Authentication | N/A (static site, no backend) |
+| Database | N/A (static site, no backend) |
+
+---
+
+## Features
+
+- Single-page layout with anchored section navigation
+- WebGL grainient background rendered with OGL custom shader
+- GSAP ScrollTrigger pinned section with 3D card flip animation
+- Embla Carousel with autoplay, drag, keyboard navigation, and dot indicators
+- Masonry gallery with IntersectionObserver lazy-reveal and full-screen lightbox
+- Dual-row infinite marquee for testimonials with noise overlay
+- Drag-scroll door panel slider (mouse and touch) with lightbox
+- Contact section with Google Maps embed and in-page detail view
+- Legal documents (privacy policy, cookie policy, terms) served in accessible modals
+- Structured data: `HomeAndConstructionBusiness`, `Organization`, `FAQPage`
+- Full meta tag coverage: Open Graph, Twitter Card, geo targeting, robots directives
+- Accessible keyboard navigation, ARIA attributes, skip link, `prefers-reduced-motion` support
+- Responsive layout targeting mobile, tablet, and desktop breakpoints
 
 ---
 
@@ -61,51 +73,49 @@ SEO is implemented through Schema.org `HomeAndConstructionBusiness` and `FAQPage
 ```text
 roloproduct-website/
 ├── public/
-│   ├── favicon/              # Favicon set (SVG, PNG, webmanifest)
-│   ├── galerija/             # Gallery images + optimized variants
-│   ├── karusel/              # Services carousel images
-│   ├── paneli/               # Door panel images (16 total)
-│   ├── recenzije/            # Testimonial avatars
-│   ├── servisi/              # About section images
-│   ├── kontakt/              # Contact section images
-│   ├── CNAME                 # Custom domain (roloproduct.com)
-│   ├── robots.txt            # SEO crawl directives
-│   └── sitemap.xml           # Sitemap for search engines
+│   ├── favicon/                      Favicon set (SVG, PNG, webmanifest)
+│   ├── galerija/                     Gallery images and optimized variants
+│   ├── karusel/                      Services carousel images
+│   ├── paneli/                       Door panel images (16 total)
+│   ├── recenzije/                    Testimonial avatars
+│   ├── servisi/                      About section images
+│   ├── kontakt/                      Contact section images
+│   ├── CNAME                         Custom domain (roloproduct.com)
+│   ├── robots.txt                    Search engine crawl directives
+│   └── sitemap.xml                   Sitemap for search engines
 ├── scripts/
-│   └── optimize-gallery-images.mjs   # Sharp build-time image optimizer
+│   └── optimize-gallery-images.mjs   Sharp-based build-time image optimizer
 ├── src/
 │   ├── components/
-│   │   ├── Footer.tsx        # Footer with legal modals
-│   │   ├── Grainient.tsx     # WebGL noise/gradient background
-│   │   ├── Marquee.tsx       # Infinite scroll marquee
-│   │   ├── Navbar.tsx        # (optional, project uses Hero topbar)
-│   │   ├── ShinyText.tsx     # Gradient shine text effect
+│   │   ├── Footer.tsx                Footer with legal document modals
+│   │   ├── Grainient.tsx             WebGL noise/gradient background
+│   │   ├── Marquee.tsx               Infinite scroll marquee primitive
+│   │   ├── ShinyText.tsx             Gradient shine text effect
 │   │   └── ui/
-│   │       ├── carousel.tsx  # Carousel primitives
-│   │       └── liquid-glass.tsx
+│   │       ├── carousel.tsx          Carousel primitives
+│   │       └── liquid-glass.tsx      Glassmorphism card and button components
 │   ├── hooks/
-│   │   ├── useInView.ts      # IntersectionObserver wrapper
-│   │   └── useMediaQuery.ts
+│   │   ├── useInView.ts              IntersectionObserver wrapper
+│   │   └── useMediaQuery.ts          Media query hook
 │   ├── sections/
-│   │   ├── Hero.tsx
-│   │   ├── Services.tsx
-│   │   ├── About.tsx
-│   │   ├── Gallery.tsx
-│   │   ├── Testimonials.tsx
-│   │   ├── FAQ.tsx
-│   │   ├── DoorPanels.tsx
-│   │   ├── Contact.tsx
-│   │   └── Footer.tsx
+│   │   ├── Hero.tsx                  Hero section (video background)
+│   │   ├── Services.tsx              Services carousel section
+│   │   ├── About.tsx                 About section with GSAP animation
+│   │   ├── Gallery.tsx               Gallery section with lightbox
+│   │   ├── Testimonials.tsx          Testimonials marquee section
+│   │   ├── FAQ.tsx                   FAQ accordion section
+│   │   ├── DoorPanels.tsx            Door panels slider section
+│   │   └── Contact.tsx               Contact section with map
 │   ├── types/
-│   │   ├── index.ts          # Type definitions
-│   │   └── data.ts           # Services, testimonials, FAQ data
+│   │   ├── index.ts                  Shared TypeScript types
+│   │   └── data.ts                   Static data (services, testimonials, FAQ)
 │   ├── generated/
-│   │   └── gallery-images.ts # Auto-generated by optimize script
-│   ├── site.ts               # SITE_INFO, navigation, legal documents
-│   ├── App.tsx               # Root component
-│   ├── main.tsx              # Entry point
-│   └── index.css             # Global styles + CSS variables
-├── index.html                # HTML shell with SEO meta tags
+│   │   └── gallery-images.ts         Auto-generated gallery metadata
+│   ├── site.ts                       Site config (contact, nav, legal docs)
+│   ├── App.tsx                       Root component
+│   ├── main.tsx                      Application entry point
+│   └── index.css                     Global styles and CSS variables
+├── index.html                        HTML shell with SEO metadata
 ├── package.json
 ├── tsconfig.json
 ├── vite.config.ts
@@ -114,14 +124,14 @@ roloproduct-website/
 
 ---
 
-## Getting Started
+## Setup and Installation
 
 ### Prerequisites
 
-- **Node.js** 20+ ([nodejs.org](https://nodejs.org))
-- **npm** 10+
+- Node.js 20 or newer
+- npm 10 or newer
 
-### Installation
+### Install
 
 ```bash
 git clone https://github.com/USERNAME/roloproduct-website.git
@@ -129,13 +139,13 @@ cd roloproduct-website
 npm install
 ```
 
-### Development
+### Development server
 
 ```bash
 npm run dev
 ```
 
-The site is available at [http://localhost:3000](http://localhost:3000).
+Application runs at `http://localhost:3000`.
 
 ### Production build
 
@@ -143,7 +153,7 @@ The site is available at [http://localhost:3000](http://localhost:3000).
 npm run build
 ```
 
-Build output goes to the `dist/` folder.
+Build output is written to `dist/`.
 
 ### Preview production build
 
@@ -151,138 +161,69 @@ Build output goes to the `dist/` folder.
 npm run preview
 ```
 
----
+### Lint
 
-## Scripts
+```bash
+npm run lint
+```
 
-| Command | Description |
-|---|---|
-| `npm run dev` | Starts Vite dev server with HMR |
-| `npm run build` | TypeScript check + production build |
-| `npm run preview` | Preview production build locally |
-| `npm run lint` | ESLint check |
-| `npm run optimize:gallery` | Optimizes images from `public/galerija/` (generates WebP and JPEG variants + `src/generated/gallery-images.ts`) |
-| `npm run deploy` | Build + deploy to GitHub Pages (`gh-pages -d dist`) |
-
----
-
-## Image Optimization
-
-Gallery images are optimized at build-time using a Sharp-based script:
+### Optimize gallery images
 
 ```bash
 npm run optimize:gallery
 ```
 
-The script:
-1. Reads original images from `public/galerija/`
-2. Generates `480px`, `900px`, `1400px` variants in WebP and JPEG formats
-3. Writes them to `public/galerija/optimized/`
-4. Generates `src/generated/gallery-images.ts` with metadata (srcset, aspect ratio, dimensions)
+Reads originals from `public/galerija/`, generates 480px, 900px, and 1400px variants in WebP and JPEG formats, writes them to `public/galerija/optimized/`, and regenerates `src/generated/gallery-images.ts`.
 
-The `Gallery.tsx` component uses the generated data for a `<picture>` element with a responsive `srcset`.
+### Deploy to GitHub Pages
 
----
+```bash
+npm run deploy
+```
 
-## SEO
-
-- **Structured Data (JSON-LD):** `HomeAndConstructionBusiness` + `Organization` + `FAQPage` schema
-- **Meta tags:** title, description, keywords, author, robots
-- **Open Graph + Twitter Card** for social sharing
-- **Geo targeting:** `geo.region`, `geo.placename`, `geo.position`, `ICBM`
-- **Sitemap** (`sitemap.xml`) and **robots.txt**
-- **Semantic HTML:** `section`, `article`, `nav`, `main`, `footer`, `address`, `blockquote`, `cite`
-- **ARIA attributes:** all interactive elements have `aria-label`, `aria-expanded`, `aria-controls`, `aria-current`
-- **Skip link** (`#main-content`) for accessibility
-- **`prefers-reduced-motion`** support for animations
+The `predeploy` script runs `npm run build` before publishing `dist/` via `gh-pages`.
 
 ---
 
-## Deployment
+## API Reference
 
-### GitHub Pages
+This is a static frontend project and exposes no HTTP API. Navigation is handled client-side through anchored section IDs. The table below lists the section routes and their target anchors.
 
-1. Make sure `package.json` has the `homepage` field set to the correct domain:
-   ```json
-   "homepage": "https://roloproduct.com"
-   ```
-
-2. The `public/CNAME` file contains:
-   ```
-   roloproduct.com
-   ```
-
-3. Deploy:
-   ```bash
-   npm run deploy
-   ```
-
-The `predeploy` script automatically runs `npm run build` before deployment.
-
-### Custom Domain
-
-In your domain's DNS settings add:
-
-| Type | Name | Value |
+| Section | Anchor | Rendered By |
 |---|---|---|
-| `A` | `@` | `185.199.108.153` |
-| `A` | `@` | `185.199.109.153` |
-| `A` | `@` | `185.199.110.153` |
-| `A` | `@` | `185.199.111.153` |
-| `CNAME` | `www` | `USERNAME.github.io` |
+| Hero | `#hero` | `src/sections/Hero.tsx` |
+| Services | `#usluge` | `src/sections/Services.tsx` |
+| About | `#o-nama` | `src/sections/About.tsx` |
+| Gallery | `#galerija` | `src/sections/Gallery.tsx` |
+| Testimonials | `#utisci` | `src/sections/Testimonials.tsx` |
+| FAQ | `#faq` | `src/sections/FAQ.tsx` |
+| Door Panels | `#vrata-paneli` | `src/sections/DoorPanels.tsx` |
+| Contact | `#kontakt` | `src/sections/Contact.tsx` |
 
-In GitHub repo settings: **Settings → Pages → Custom domain** → enter `roloproduct.com` → wait for DNS verification → check **Enforce HTTPS**.
+External integrations (read-only, no authentication):
 
----
-
-## Browser Support
-
-- Chrome / Edge 105+
-- Firefox 121+
-- Safari 15.4+
-- iOS Safari 15.4+
-- Android Chrome 105+
-
-Modern web APIs used: CSS `:has()`, `backdrop-filter`, `aspect-ratio`, `IntersectionObserver`, `WebGL2`, `import.meta.env`.
+| Integration | Purpose | Reference |
+|---|---|---|
+| Google Maps Embed | Display company location in contact section | `SITE_INFO.mapsEmbedUrl` in `src/site.ts` |
+| Google Fonts | Typography (Inter, Bebas Neue, DM Sans, Playfair Display) | `index.html` |
+| Google Analytics | Traffic measurement | Injected script in deployment |
 
 ---
 
-## Performance
+## Security & Architecture Considerations
 
-- **Code splitting:** React and React DOM are split into a separate chunk
-- **Image optimization:** WebP + JPEG with responsive `srcset` (480/900/1400px)
-- **Lazy loading:** `loading="lazy"` on gallery and panel images
-- **Font preconnect:** `preconnect` to Google Fonts
-- **Tree-shaking:** Vite eliminates unused code
-- **CSS Modules / plain CSS:** no runtime CSS-in-JS
-
----
-
-## Accessibility
-
-- WCAG 2.1 AA level
-- Semantic HTML and ARIA attributes
-- Keyboard navigation (arrow keys in gallery, ESC to close modals)
-- Focus visible outline
-- Skip link for main content
-- `prefers-reduced-motion` support
-- Color contrast compliant with standards
+- Static site: no server-side runtime, no database, no user accounts, no session storage.
+- All data (services, testimonials, FAQ, legal documents) is defined in TypeScript modules and bundled at build time.
+- External embed (Google Maps) is loaded in a sandboxed `iframe` with `loading="lazy"` and `referrerPolicy="no-referrer-when-downgrade"`.
+- All outbound links use `rel="noreferrer"` when opened in a new tab.
+- Content Security is managed at the host level (GitHub Pages). No inline event handlers are used; interactions are bound through React.
+- Images are pre-optimized (WebP/JPEG, responsive `srcset`) to reduce bandwidth and avoid runtime image processing.
+- Semantic HTML and ARIA attributes are used throughout to support assistive technologies.
+- `prefers-reduced-motion` is respected to disable non-essential animation.
+- No analytics cookies are set by the site itself; any tracking is delegated to the deployed Google Analytics snippet and governed by the cookie policy published in the site footer.
 
 ---
 
 ## License
 
-**Proprietary** — © ROLO PRODUCT d.o.o. All rights reserved.
-
-The code is the property of the client. Copying, distribution, or commercial use without prior written permission is not allowed.
-
----
-
-## Contact
-
-**ROLO PRODUCT d.o.o.**
-Aleksandrova obala 6, Zelenika, Herceg Novi, Montenegro
-
-- Web: [roloproduct.com](https://roloproduct.com/)
-- Email: [danijelrolovic@gmail.com](mailto:danijelrolovic@gmail.com)
-- Phone: [+382 68 459 979](tel:+38268459979)
+Proprietary. Copyright (c) ROLO PRODUCT d.o.o. All rights reserved. The source code is the property of the client. Copying, redistribution, or commercial use without prior written permission is prohibited.
