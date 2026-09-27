@@ -1,73 +1,288 @@
-# React + TypeScript + Vite
+# ROLO PRODUCT — Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> **Real client project** — this website was built for **ROLO PRODUCT d.o.o.**, a company specialized in manufacturing and installing custom PVC and ALU joinery in Montenegro. The site is live in production at **[roloproduct.com](https://roloproduct.com/)**.
 
-Currently, two official plugins are available:
+[![Live](https://img.shields.io/badge/live-roloproduct.com-2f7cff?style=flat-square)](https://roloproduct.com/)
+[![React](https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5-3178c6?style=flat-square&logo=typescript)](https://www.typescriptlang.org)
+[![Vite](https://img.shields.io/badge/Vite-8-646cff?style=flat-square&logo=vite)](https://vitejs.dev)
+[![License](https://img.shields.io/badge/license-Proprietary-red?style=flat-square)](LICENSE)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📊 Google Analytics — Real Production Data
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The site is live in production and receives traffic from real users. Below are screenshots from Google Analytics showing actual traffic:
 
-## Expanding the ESLint configuration
+![Google Analytics — traffic overview](img-1.png)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+![Google Analytics — visitor statistics](img-2.png)
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Overview
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Single-page marketing website with the following sections:
+
+- **Hero** — video background, glassmorphism testimonial card
+- **Services** — Embla carousel with liquid glass cards
+- **About** — GSAP ScrollTrigger 3D flip animation
+- **Gallery** — masonry grid with lightbox preview and lazy loading
+- **Testimonials** — dual marquee with noise overlay effect
+- **FAQ** — accordion with WebGL grainient background
+- **Door Panels** — drag-scroll slider with lightbox preview
+- **Contact** — split view with Google Maps integration
+- **Footer** — legal documents in modals (privacy, cookies, terms)
+
+SEO is implemented through Schema.org `HomeAndConstructionBusiness` and `FAQPage` structured data, `sitemap.xml`, `robots.txt`, and complete meta tags (Open Graph, Twitter Card, geo targeting).
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| **Framework** | React 19 |
+| **Language** | TypeScript 5 |
+| **Build** | Vite 8 |
+| **Animations** | GSAP + ScrollTrigger, Motion |
+| **Carousel** | Embla Carousel |
+| **WebGL** | OGL (custom shader for Grainient background) |
+| **Icons** | Lucide React |
+| **Utilities** | clsx, tailwind-merge |
+| **Image optimization** | Sharp (build-time) |
+| **Deploy** | GitHub Pages (gh-pages) |
+| **Fonts** | Google Fonts (Inter, Bebas Neue, DM Sans, Playfair Display) |
+
+---
+
+## Project Structure
+
+```text
+roloproduct-website/
+├── public/
+│   ├── favicon/              # Favicon set (SVG, PNG, webmanifest)
+│   ├── galerija/             # Gallery images + optimized variants
+│   ├── karusel/              # Services carousel images
+│   ├── paneli/               # Door panel images (16 total)
+│   ├── recenzije/            # Testimonial avatars
+│   ├── servisi/              # About section images
+│   ├── kontakt/              # Contact section images
+│   ├── CNAME                 # Custom domain (roloproduct.com)
+│   ├── robots.txt            # SEO crawl directives
+│   └── sitemap.xml           # Sitemap for search engines
+├── scripts/
+│   └── optimize-gallery-images.mjs   # Sharp build-time image optimizer
+├── src/
+│   ├── components/
+│   │   ├── Footer.tsx        # Footer with legal modals
+│   │   ├── Grainient.tsx     # WebGL noise/gradient background
+│   │   ├── Marquee.tsx       # Infinite scroll marquee
+│   │   ├── Navbar.tsx        # (optional, project uses Hero topbar)
+│   │   ├── ShinyText.tsx     # Gradient shine text effect
+│   │   └── ui/
+│   │       ├── carousel.tsx  # Carousel primitives
+│   │       └── liquid-glass.tsx
+│   ├── hooks/
+│   │   ├── useInView.ts      # IntersectionObserver wrapper
+│   │   └── useMediaQuery.ts
+│   ├── sections/
+│   │   ├── Hero.tsx
+│   │   ├── Services.tsx
+│   │   ├── About.tsx
+│   │   ├── Gallery.tsx
+│   │   ├── Testimonials.tsx
+│   │   ├── FAQ.tsx
+│   │   ├── DoorPanels.tsx
+│   │   ├── Contact.tsx
+│   │   └── Footer.tsx
+│   ├── types/
+│   │   ├── index.ts          # Type definitions
+│   │   └── data.ts           # Services, testimonials, FAQ data
+│   ├── generated/
+│   │   └── gallery-images.ts # Auto-generated by optimize script
+│   ├── site.ts               # SITE_INFO, navigation, legal documents
+│   ├── App.tsx               # Root component
+│   ├── main.tsx              # Entry point
+│   └── index.css             # Global styles + CSS variables
+├── index.html                # HTML shell with SEO meta tags
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Getting Started
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- **Node.js** 20+ ([nodejs.org](https://nodejs.org))
+- **npm** 10+
+
+### Installation
+
+```bash
+git clone https://github.com/USERNAME/roloproduct-website.git
+cd roloproduct-website
+npm install
 ```
+
+### Development
+
+```bash
+npm run dev
+```
+
+The site is available at [http://localhost:3000](http://localhost:3000).
+
+### Production build
+
+```bash
+npm run build
+```
+
+Build output goes to the `dist/` folder.
+
+### Preview production build
+
+```bash
+npm run preview
+```
+
+---
+
+## Scripts
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Starts Vite dev server with HMR |
+| `npm run build` | TypeScript check + production build |
+| `npm run preview` | Preview production build locally |
+| `npm run lint` | ESLint check |
+| `npm run optimize:gallery` | Optimizes images from `public/galerija/` (generates WebP and JPEG variants + `src/generated/gallery-images.ts`) |
+| `npm run deploy` | Build + deploy to GitHub Pages (`gh-pages -d dist`) |
+
+---
+
+## Image Optimization
+
+Gallery images are optimized at build-time using a Sharp-based script:
+
+```bash
+npm run optimize:gallery
+```
+
+The script:
+1. Reads original images from `public/galerija/`
+2. Generates `480px`, `900px`, `1400px` variants in WebP and JPEG formats
+3. Writes them to `public/galerija/optimized/`
+4. Generates `src/generated/gallery-images.ts` with metadata (srcset, aspect ratio, dimensions)
+
+The `Gallery.tsx` component uses the generated data for a `<picture>` element with a responsive `srcset`.
+
+---
+
+## SEO
+
+- **Structured Data (JSON-LD):** `HomeAndConstructionBusiness` + `Organization` + `FAQPage` schema
+- **Meta tags:** title, description, keywords, author, robots
+- **Open Graph + Twitter Card** for social sharing
+- **Geo targeting:** `geo.region`, `geo.placename`, `geo.position`, `ICBM`
+- **Sitemap** (`sitemap.xml`) and **robots.txt**
+- **Semantic HTML:** `section`, `article`, `nav`, `main`, `footer`, `address`, `blockquote`, `cite`
+- **ARIA attributes:** all interactive elements have `aria-label`, `aria-expanded`, `aria-controls`, `aria-current`
+- **Skip link** (`#main-content`) for accessibility
+- **`prefers-reduced-motion`** support for animations
+
+---
+
+## Deployment
+
+### GitHub Pages
+
+1. Make sure `package.json` has the `homepage` field set to the correct domain:
+   ```json
+   "homepage": "https://roloproduct.com"
+   ```
+
+2. The `public/CNAME` file contains:
+   ```
+   roloproduct.com
+   ```
+
+3. Deploy:
+   ```bash
+   npm run deploy
+   ```
+
+The `predeploy` script automatically runs `npm run build` before deployment.
+
+### Custom Domain
+
+In your domain's DNS settings add:
+
+| Type | Name | Value |
+|---|---|---|
+| `A` | `@` | `185.199.108.153` |
+| `A` | `@` | `185.199.109.153` |
+| `A` | `@` | `185.199.110.153` |
+| `A` | `@` | `185.199.111.153` |
+| `CNAME` | `www` | `USERNAME.github.io` |
+
+In GitHub repo settings: **Settings → Pages → Custom domain** → enter `roloproduct.com` → wait for DNS verification → check **Enforce HTTPS**.
+
+---
+
+## Browser Support
+
+- Chrome / Edge 105+
+- Firefox 121+
+- Safari 15.4+
+- iOS Safari 15.4+
+- Android Chrome 105+
+
+Modern web APIs used: CSS `:has()`, `backdrop-filter`, `aspect-ratio`, `IntersectionObserver`, `WebGL2`, `import.meta.env`.
+
+---
+
+## Performance
+
+- **Code splitting:** React and React DOM are split into a separate chunk
+- **Image optimization:** WebP + JPEG with responsive `srcset` (480/900/1400px)
+- **Lazy loading:** `loading="lazy"` on gallery and panel images
+- **Font preconnect:** `preconnect` to Google Fonts
+- **Tree-shaking:** Vite eliminates unused code
+- **CSS Modules / plain CSS:** no runtime CSS-in-JS
+
+---
+
+## Accessibility
+
+- WCAG 2.1 AA level
+- Semantic HTML and ARIA attributes
+- Keyboard navigation (arrow keys in gallery, ESC to close modals)
+- Focus visible outline
+- Skip link for main content
+- `prefers-reduced-motion` support
+- Color contrast compliant with standards
+
+---
+
+## License
+
+**Proprietary** — © ROLO PRODUCT d.o.o. All rights reserved.
+
+The code is the property of the client. Copying, distribution, or commercial use without prior written permission is not allowed.
+
+---
+
+## Contact
+
+**ROLO PRODUCT d.o.o.**
+Aleksandrova obala 6, Zelenika, Herceg Novi, Montenegro
+
+- Web: [roloproduct.com](https://roloproduct.com/)
+- Email: [danijelrolovic@gmail.com](mailto:danijelrolovic@gmail.com)
+- Phone: [+382 68 459 979](tel:+38268459979)
