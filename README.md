@@ -6,30 +6,6 @@ Live: https://roloproduct.com/
 
 ---
 
-## Architecture / Flow Diagram
-
-![Architecture and flow diagram](diagram.png)
-
----
-
-## Screenshots
-
-| Screen | Description |
-|---|---|
-| `img-1.png` | Google Analytics — traffic overview (production) |
-| `img-2.png` | Google Analytics — visitor statistics (production) |
-| Hero | Video background with glassmorphism testimonial card |
-| Services | Embla carousel with liquid glass cards |
-| About | GSAP ScrollTrigger 3D flip animation |
-| Gallery | Masonry grid with lightbox preview |
-| Testimonials | Dual marquee with noise overlay |
-| FAQ | Accordion with WebGL grainient background |
-| Door Panels | Drag-scroll slider with lightbox preview |
-| Contact | Split view with Google Maps embed |
-| Footer | Legal modals (privacy, cookies, terms) |
-
----
-
 ## Tech Stack
 
 | Layer | Technology |
@@ -45,8 +21,6 @@ Live: https://roloproduct.com/
 | Image Optimization | Sharp (build-time script) |
 | Fonts | Google Fonts (Inter, Bebas Neue, DM Sans, Playfair Display) |
 | Deployment | GitHub Pages (gh-pages) |
-| Authentication | N/A (static site, no backend) |
-| Database | N/A (static site, no backend) |
 
 ---
 
